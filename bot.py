@@ -1,7 +1,6 @@
 import praw
 import config
 import re
-import redditcleaner
 from gui import display
 # Setting up Reddit Bot using PRAW and things we set in config
 def bot_login():
@@ -40,7 +39,7 @@ def run_bot(r):
         for line in lines:
             pages.append(line) #First is the page number, second is the line of text associated with the page
 
-        #Updates dictionary with the new Chapter and it's corresponding pages EX: {1071: [these are pages]}            
+        #Updates dictionary with the new Chapter and it's corresponding pages EX: {1071: [these, are, the, pages]}            
         chapter_dict.update({int(re.search(r"\b\d+\b", s.title).group()): pages})
 
     latest_chapter(chapter_dict)
